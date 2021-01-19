@@ -8,6 +8,11 @@ class App extends Component {
                { title: "Book 3", price: 300 },
           ],
      };
+
+     changePriceHandler = () => {
+          console.log("this is working!");
+     };
+
      render() {
           return (
                <div className='container'>
@@ -27,6 +32,10 @@ class App extends Component {
                          title={this.state.products[2].title}
                          price={this.state.products[2].price}
                     />
+
+                    <button onClick={this.changePriceHandler}>
+                         click on me!
+                    </button>
                </div>
           );
      }
