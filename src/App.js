@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Component/Product/Product";
+import "./App.css";
 
 class App extends Component {
      state = {
@@ -23,8 +24,8 @@ class App extends Component {
 
      render() {
           return (
-               <div className='container'>
-                    <h2>React App</h2>
+               <div className='center'>
+                    <h2>Book App</h2>
                     <p>Hello World!</p>
                     <Product
                          title={this.state.products[0].title}
