@@ -11,6 +11,13 @@ class App extends Component {
 
      changePriceHandler = () => {
           console.log("this is working!");
+          this.setState({
+               products: [
+                    { title: "Book 1", price: 10 },
+                    { title: "Book 2", price: 20 },
+                    { title: "Book 3", price: 30 },
+               ],
+          });
      };
 
      render() {
