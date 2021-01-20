@@ -11,6 +11,16 @@ class App extends Component {
           ],
      };
 
+     changeTitleHandler = (event) => {
+          this.setState({
+               products: [
+                    { title: "Book 1", price: 100 },
+                    { title: event.target.value, price: 200 },
+                    { title: "Book 3", price: 300 },
+               ],
+          });
+     };
+
      changePriceHandler = (newTitle) => {
           console.log("this is working!");
           this.setState({
@@ -34,6 +44,7 @@ class App extends Component {
                     <Product
                          title={this.state.products[1].title}
                          price={this.state.products[1].price}
+                         changeThis={this.changeTitleHandler}
                     >
                          Discount: 20%
                     </Product>
@@ -43,7 +54,12 @@ class App extends Component {
                          clickThis={() => this.changePriceHandler("New Title")}
                     />
 
-                    <button onClick={this.changePriceHandler.bind(this, "new Title")}>
+                    <button
+                         onClick={this.changePriceHandler.bind(
+                              this,
+                              "new Title"
+                         )}
+                    >
                          click on me!
                     </button>
                </div>
