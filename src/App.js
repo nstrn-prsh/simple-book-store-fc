@@ -9,6 +9,7 @@ class App extends Component {
                { title: "Book 2", price: 200 },
                { title: "Book 3", price: 300 },
           ],
+          showProducts: false,
      };
 
      changeTitleHandler = (event) => {
@@ -32,6 +33,11 @@ class App extends Component {
           });
      };
 
+     toggleProducts = () => {
+          const show = this.state.showProducts;
+          this.setState({ showProducts: !show });
+     };
+
      render() {
           const btn = {
                backgroundColor: "#7b1fa2",
@@ -48,32 +54,37 @@ class App extends Component {
                <div className='center'>
                     <h2>Book App</h2>
                     <p>Hello World!</p>
-                    <Product
-                         title={this.state.products[0].title}
-                         price={this.state.products[0].price}
-                    />
-                    <Product
-                         title={this.state.products[1].title}
-                         price={this.state.products[1].price}
-                         changeThis={this.changeTitleHandler}
-                    >
-                         Discount: 20%
-                    </Product>
-                    <Product
-                         title={this.state.products[2].title}
-                         price={this.state.products[2].price}
-                         clickThis={() => this.changePriceHandler("New Title")}
-                    />
 
                     <button
                          style={btn}
-                         onClick={this.changePriceHandler.bind(
-                              this,
-                              "new Title"
-                         )}
+                         // onClick={this.changePriceHandler.bind(this,"new Title")}
+                         onClick={this.toggleProducts}
                     >
                          click on me!
                     </button>
+
+                    {this.state.showProducts ? (
+                         <div>
+                              <Product
+                                   title={this.state.products[0].title}
+                                   price={this.state.products[0].price}
+                              />
+                              <Product
+                                   title={this.state.products[1].title}
+                                   price={this.state.products[1].price}
+                                   changeThis={this.changeTitleHandler}
+                              >
+                                   Discount: 20%
+                              </Product>
+                              <Product
+                                   title={this.state.products[2].title}
+                                   price={this.state.products[2].price}
+                                   clickThis={() =>
+                                        this.changePriceHandler("New Title")
+                                   }
+                              />
+                         </div>
+                    ) : null}
                </div>
           );
      }
