@@ -38,6 +38,13 @@ class App extends Component {
           this.setState({ showProducts: !show });
      };
 
+     // e29
+     handleDeleteProduct = (productIndex) =>{
+          const products = this.state.products
+          products.splice(productIndex, 1)
+          this.setState({products})
+     }
+
      render() {
           const btn = {
                backgroundColor: "#7b1fa2",
@@ -55,8 +62,12 @@ class App extends Component {
           if (this.state.showProducts) {
                products = (
                     <div>
-                         {this.state.products.map((item) => (
-                              <Product title={item.title} price={item.price} />
+                         {this.state.products.map((item, index) => (
+                              <Product
+                                   clickThis={() => this.handleDeleteProduct(index)}
+                                   title={item.title}
+                                   price={item.price}
+                              />
                          ))}
                     </div>
                );
