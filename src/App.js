@@ -50,6 +50,33 @@ class App extends Component {
                margin: "0.6rem auto",
           };
 
+          let products = null;
+
+          if (this.state.showProducts) {
+               products = (
+                    <div>
+                         <Product
+                              title={this.state.products[0].title}
+                              price={this.state.products[0].price}
+                         />
+                         <Product
+                              title={this.state.products[1].title}
+                              price={this.state.products[1].price}
+                              changeThis={this.changeTitleHandler}
+                         >
+                              Discount: 20%
+                         </Product>
+                         <Product
+                              title={this.state.products[2].title}
+                              price={this.state.products[2].price}
+                              clickThis={() =>
+                                   this.changePriceHandler("New Title")
+                              }
+                         />
+                    </div>
+               );
+          }
+
           return (
                <div className='center'>
                     <h2>Book App</h2>
@@ -63,28 +90,7 @@ class App extends Component {
                          click on me!
                     </button>
 
-                    {this.state.showProducts ? (
-                         <div>
-                              <Product
-                                   title={this.state.products[0].title}
-                                   price={this.state.products[0].price}
-                              />
-                              <Product
-                                   title={this.state.products[1].title}
-                                   price={this.state.products[1].price}
-                                   changeThis={this.changeTitleHandler}
-                              >
-                                   Discount: 20%
-                              </Product>
-                              <Product
-                                   title={this.state.products[2].title}
-                                   price={this.state.products[2].price}
-                                   clickThis={() =>
-                                        this.changePriceHandler("New Title")
-                                   }
-                              />
-                         </div>
-                    ) : null}
+                    {products}
                </div>
           );
      }
