@@ -5,9 +5,9 @@ import "./App.css";
 class App extends Component {
      state = {
           products: [
-               { title: "Book 1", price: 100 },
-               { title: "Book 2", price: 200 },
-               { title: "Book 3", price: 300 },
+               { id: 1, title: "Book 1", price: 100 },
+               { id: 2, title: "Book 2", price: 200 },
+               { id: 3, title: "Book 3", price: 300 },
           ],
           showProducts: false,
      };
@@ -39,11 +39,11 @@ class App extends Component {
      };
 
      // e29
-     handleDeleteProduct = (productIndex) =>{
-          const products = this.state.products
-          products.splice(productIndex, 1)
-          this.setState({products})
-     }
+     handleDeleteProduct = (productIndex) => {
+          const products = [...this.state.products];
+          products.splice(productIndex, 1);
+          this.setState({ products });
+     };
 
      render() {
           const btn = {
@@ -64,7 +64,10 @@ class App extends Component {
                     <div>
                          {this.state.products.map((item, index) => (
                               <Product
-                                   clickThis={() => this.handleDeleteProduct(index)}
+                                   key={item.id}
+                                   clickThis={() =>
+                                        this.handleDeleteProduct(index)
+                                   }
                                    title={item.title}
                                    price={item.price}
                               />
