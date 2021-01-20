@@ -12,25 +12,15 @@ class App extends Component {
           showProducts: false,
      };
 
-     changeTitleHandler = (event) => {
-          this.setState({
-               products: [
-                    { title: "Book 1", price: 100 },
-                    { title: event.target.value, price: 200 },
-                    { title: "Book 3", price: 300 },
-               ],
-          });
-     };
+     // e32
+     changeTitleHandler = (event, id) => {
+          const products = [...this.state.products];
+          const productIndex = products.findIndex((item) => item.id === id);
+          const product = {...products[productIndex]}
+          product.title = event.target.value 
 
-     changePriceHandler = (newTitle) => {
-          console.log("this is working!");
-          this.setState({
-               products: [
-                    { title: newTitle, price: 10 },
-                    { title: "Book 2", price: 20 },
-                    { title: "Book 3", price: 30 },
-               ],
-          });
+          products[productIndex] = product
+          this.setState({products})
      };
 
      toggleProducts = () => {
@@ -65,11 +55,17 @@ class App extends Component {
                          {this.state.products.map((item, index) => (
                               <Product
                                    key={item.id}
+                                   title={item.title}
+                                   price={item.price}
                                    clickThis={() =>
                                         this.handleDeleteProduct(index)
                                    }
-                                   title={item.title}
-                                   price={item.price}
+                                   changeThis={(event) =>
+                                        this.changeTitleHandler(
+                                             event,
+                                             item.id
+                                        )
+                                   }
                               />
                          ))}
                     </div>
