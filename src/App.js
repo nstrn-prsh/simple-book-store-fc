@@ -40,6 +40,7 @@ class App extends Component {
                     <Product
                          title={this.state.products[2].title}
                          price={this.state.products[2].price}
+                         clickThis={this.changePriceHandler}
                     />
 
                     <button onClick={this.changePriceHandler}>
