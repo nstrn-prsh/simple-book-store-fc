@@ -33,6 +33,17 @@ class App extends Component {
      };
 
      render() {
+          const btn = {
+               backgroundColor: "#7b1fa2",
+               color: "#ffffff",
+               font: "inherit",
+               border: "none",
+               outline: "none",
+               borderRadius: "3px",
+               padding: "0.6rem",
+               margin: "0.6rem auto",
+          };
+
           return (
                <div className='center'>
                     <h2>Book App</h2>
@@ -55,6 +66,7 @@ class App extends Component {
                     />
 
                     <button
+                         style={btn}
                          onClick={this.changePriceHandler.bind(
                               this,
                               "new Title"
@@ -68,47 +80,3 @@ class App extends Component {
 }
 
 export default App;
-
-// const App = () => {
-//      const [productState, setProductState] = useState({
-//           products: [
-//                { title: "Book 1", price: 100 },
-//                { title: "Book 2", price: 200 },
-//                { title: "Book 3", price: 300 },
-//           ],
-//      });
-//      const changePriceHandler = () => {
-//           setProductState({
-//                products: [
-//                     { title: "Book 1", price: 10 },
-//                     { title: "Book 2", price: 10 },
-//                     { title: "Book 3", price: 10 },
-//                ],
-//           });
-//      };
-
-//      return (
-//           <div className='container'>
-//                <h2>React App</h2>
-//                <p>Hello World!</p>
-//                <Product
-//                     title={productState.products[0].title}
-//                     price={productState.products[0].price}
-//                />
-//                <Product
-//                     title={productState.products[1].title}
-//                     price={productState.products[1].price}
-//                >
-//                     Discount: 20%
-//                </Product>
-//                <Product
-//                     title={productState.products[2].title}
-//                     price={productState.products[2].price}
-//                />
-
-//                <button onClick={changePriceHandler}>click on me!</button>
-//           </div>
-//      );
-// };
-
-// export default App;
