@@ -55,24 +55,9 @@ class App extends Component {
           if (this.state.showProducts) {
                products = (
                     <div>
-                         <Product
-                              title={this.state.products[0].title}
-                              price={this.state.products[0].price}
-                         />
-                         <Product
-                              title={this.state.products[1].title}
-                              price={this.state.products[1].price}
-                              changeThis={this.changeTitleHandler}
-                         >
-                              Discount: 20%
-                         </Product>
-                         <Product
-                              title={this.state.products[2].title}
-                              price={this.state.products[2].price}
-                              clickThis={() =>
-                                   this.changePriceHandler("New Title")
-                              }
-                         />
+                         {this.state.products.map((item) => (
+                              <Product title={item.title} price={item.price} />
+                         ))}
                     </div>
                );
           }
