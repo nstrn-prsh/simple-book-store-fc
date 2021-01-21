@@ -4,7 +4,7 @@ import Main from "./../Component/Product/Main";
 import "./App.css";
 
 class App extends Component {
-     // e 36
+     // e36
      // in props az Component miad chon App azash extend shode
      constructor(props) {
           super(props);
@@ -20,7 +20,7 @@ class App extends Component {
           showProducts: false,
      };
 
-     //e 36
+     // e36
      componentDidMount() {
           console.log("App.js componentDidMount()");
      }
