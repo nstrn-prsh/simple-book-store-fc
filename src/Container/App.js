@@ -25,6 +25,16 @@ class App extends Component {
           console.log("App.js componentDidMount()");
      }
 
+     // e39
+     shouldComponentUpdate(nextProps, nextState){
+          console.log('App.js shouldComponentUpdate()')
+          return true
+     }
+
+     componentDidUpdate(prevProps, prevState){
+          console.log('App.js componentDidUpdate()');
+     }
+
      // e32
      changeTitleHandler = (event, id) => {
           const products = [...this.state.products];
