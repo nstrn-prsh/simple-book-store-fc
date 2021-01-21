@@ -2,6 +2,8 @@ import React from "react";
 import Product from "./Product";
 
 const ProductList = ({products, click, change}) => {
+    // console.log('ProductList');
+    
      return (
           <div>
                {products.map((item, index) => (

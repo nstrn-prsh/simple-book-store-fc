@@ -4,6 +4,13 @@ import Main from "./../Component/Product/Main";
 import "./App.css";
 
 class App extends Component {
+     // e 36
+     // in props az Component miad chon App azash extend shode
+     constructor(props) {
+          super(props);
+          console.log("App.js constructor()");
+     }
+
      state = {
           products: [
                { id: 1, title: "Book 1", price: 100 },
@@ -12,6 +19,11 @@ class App extends Component {
           ],
           showProducts: false,
      };
+
+     //e 36
+     componentDidMount() {
+          console.log("App.js componentDidMount()");
+     }
 
      // e32
      changeTitleHandler = (event, id) => {
@@ -37,6 +49,8 @@ class App extends Component {
      };
 
      render() {
+          console.log("App.js render()");
+
           let products = null;
 
           if (this.state.showProducts) {
