@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-
+import ProductList from "./../Component/Product/ProductList";
+import Main from "./../Component/Product/Main";
 import "./App.css";
-import Product from './../Component/Product/Product';
 
 class App extends Component {
      state = {
@@ -17,11 +17,11 @@ class App extends Component {
      changeTitleHandler = (event, id) => {
           const products = [...this.state.products];
           const productIndex = products.findIndex((item) => item.id === id);
-          const product = {...products[productIndex]}
-          product.title = event.target.value 
+          const product = { ...products[productIndex] };
+          product.title = event.target.value;
 
-          products[productIndex] = product
-          this.setState({products})
+          products[productIndex] = product;
+          this.setState({ products });
      };
 
      toggleProducts = () => {
@@ -37,55 +37,21 @@ class App extends Component {
      };
 
      render() {
-          const btn = {
-               backgroundColor: "#7b1fa2",
-               color: "#ffffff",
-               font: "inherit",
-               border: "none",
-               outline: "none",
-               borderRadius: "3px",
-               padding: "0.6rem",
-               margin: "0.6rem auto",
-          };
-
           let products = null;
 
           if (this.state.showProducts) {
                products = (
-                    <div>
-                         {this.state.products.map((item, index) => (
-                              <Product
-                                   key={item.id}
-                                   title={item.title}
-                                   price={item.price}
-                                   clickThis={() =>
-                                        this.handleDeleteProduct(index)
-                                   }
-                                   changeThis={(event) =>
-                                        this.changeTitleHandler(
-                                             event,
-                                             item.id
-                                        )
-                                   }
-                              />
-                         ))}
-                    </div>
+                    <ProductList
+                         products={this.state.products}
+                         click={this.handleDeleteProduct}
+                         change={this.changeTitleHandler}
+                    />
                );
           }
 
           return (
                <div className='center'>
-                    <h2>Book App</h2>
-                    <p>Hello World!</p>
-
-                    <button
-                         style={btn}
-                         // onClick={this.changePriceHandler.bind(this,"new Title")}
-                         onClick={this.toggleProducts}
-                    >
-                         click on me!
-                    </button>
-
+                    <Main click={this.toggleProducts} />
                     {products}
                </div>
           );
