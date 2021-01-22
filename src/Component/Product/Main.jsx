@@ -1,16 +1,21 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 
 const Main = (props) => {
-    const btn = {
-        backgroundColor: "#7b1fa2",
-        color: "#ffffff",
-        font: "inherit",
-        border: "none",
-        outline: "none",
-        borderRadius: "3px",
-        padding: "0.6rem",
-        margin: "0.6rem auto",
-   };
+     const btn = {
+          backgroundColor: "#7b1fa2",
+          color: "#ffffff",
+          font: "inherit",
+          border: "none",
+          outline: "none",
+          borderRadius: "3px",
+          padding: "0.6rem",
+          margin: "0.6rem auto",
+     };
+
+     //    e40
+     useEffect(() => {
+          console.log("Main.jsx useEffect()");
+     }, []);
 
      return (
           <Fragment>
