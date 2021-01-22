@@ -75,7 +75,7 @@ class App extends Component {
 
           return (
                <div className='center'>
-                    <Main click={this.toggleProducts} />
+                    <Main products={this.state.products} click={this.toggleProducts} />
                     {products}
                </div>
           );

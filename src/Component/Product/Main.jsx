@@ -12,10 +12,13 @@ const Main = (props) => {
           margin: "0.6rem auto",
      };
 
-     //    e40
+     //    e40-41
      useEffect(() => {
           console.log("Main.jsx useEffect()");
-     }, []);
+          setTimeout(() => {
+              alert('welcome bro!')
+          }, 2000);
+     }, [props.products]);
 
      return (
           <Fragment>
