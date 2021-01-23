@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Product from "./Product";
+import Hoc from './../Container/Hoc';
 class  ProductList extends Component {
      // e38
     shouldComponentUpdate(nextProps, nextState){
@@ -26,7 +27,7 @@ class  ProductList extends Component {
         console.log('ProductList');
        
         return (
-            <div>
+            <Hoc>
                  {this.props.products.map((item, index) => (
                       <Product
                            key={item.id}
@@ -36,7 +37,7 @@ class  ProductList extends Component {
                            changeThis={(event) => this.props.change(event, item.id)}
                       />
                  ))}
-            </div>
+            </Hoc>
        );
     }
 }
