@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ProductList from "./../Component/Product/ProductList";
 import Main from "./../Component/Product/Main";
 import "./App.css";
+import Wrapper from "./../Component/Container/Wrapper";
 
 class App extends Component {
      // e36
@@ -75,8 +76,8 @@ class App extends Component {
           }
 
           return (
-               <div className='center'>
-               {/* e42 */}
+               <Wrapper center='center'>
+                    {/* e42 */}
                     <button
                          onClick={() => {
                               this.setState({ showMain: false });
@@ -91,7 +92,7 @@ class App extends Component {
                          />
                     ) : null}
                     {products}
-               </div>
+               </Wrapper>
           );
      }
 }
