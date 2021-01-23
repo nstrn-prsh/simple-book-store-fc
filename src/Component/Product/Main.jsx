@@ -18,7 +18,10 @@ const Main = (props) => {
           setTimeout(() => {
               alert('welcome bro!')
           }, 2000);
-     }, [props.products]);
+          return()=>{
+              console.log('Main.js Clean up - useEffect');
+          }
+     }, []);
 
      return (
           <Fragment>

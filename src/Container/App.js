@@ -18,6 +18,7 @@ class App extends Component {
                { id: 3, title: "Book 3", price: 300 },
           ],
           showProducts: false,
+          showMain: true,
      };
 
      // e36
@@ -26,13 +27,13 @@ class App extends Component {
      }
 
      // e39
-     shouldComponentUpdate(nextProps, nextState){
-          console.log('App.js shouldComponentUpdate()')
-          return true
+     shouldComponentUpdate(nextProps, nextState) {
+          console.log("App.js shouldComponentUpdate()");
+          return true;
      }
 
-     componentDidUpdate(prevProps, prevState){
-          console.log('App.js componentDidUpdate()');
+     componentDidUpdate(prevProps, prevState) {
+          console.log("App.js componentDidUpdate()");
      }
 
      // e32
@@ -75,7 +76,20 @@ class App extends Component {
 
           return (
                <div className='center'>
-                    <Main products={this.state.products} click={this.toggleProducts} />
+               {/* e42 */}
+                    <button
+                         onClick={() => {
+                              this.setState({ showMain: false });
+                         }}
+                    >
+                         show/hide
+                    </button>
+                    {this.state.showMain ? (
+                         <Main
+                              products={this.state.products}
+                              click={this.toggleProducts}
+                         />
+                    ) : null}
                     {products}
                </div>
           );

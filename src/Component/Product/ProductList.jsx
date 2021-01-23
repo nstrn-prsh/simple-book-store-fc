@@ -16,6 +16,11 @@ class  ProductList extends Component {
         console.log('ProductList componentDidUpdate');
     }
 
+    // e42- clean up
+    componentWillUnmount(){
+        console.log('ProductList ComponentWillUnmount()');
+    }
+
     render() { 
         // e36
         console.log('ProductList');
