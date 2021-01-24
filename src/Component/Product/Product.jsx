@@ -11,6 +11,9 @@ class Product extends Component {
           this.inputRef = createRef();
      }
 
+     // e52
+     static contextType = AuthContext
+
      componentDidMount() {
           // this.inputElement.focus();
           this.inputRef.current.focus();
@@ -20,15 +23,12 @@ class Product extends Component {
           const name = "book";
           return (
                <Hoc>
-                    <AuthContext.Consumer>
-                         {(context) =>
-                              context.auth ? (
+                         {this.context.auth ? (
                                    <p>logged in!</p>
                               ) : (
                                    <p>please log in!</p>
                               )
                          }
-                    </AuthContext.Consumer>
                     <h3>it is a product {name}.</h3>
                     <h5 onClick={this.props.clickThis}>
                          name: {this.props.title}.
