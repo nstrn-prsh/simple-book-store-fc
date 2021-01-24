@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useRef } from "react";
 
 const Main = (props) => {
      const btn = {
@@ -12,15 +12,16 @@ const Main = (props) => {
           margin: "0.6rem auto",
      };
 
-     //    e40-41
+     //  e49
+     const refBtn = useRef(null);
+
+     // e40-41
      useEffect(() => {
           console.log("Main.jsx useEffect()");
-          setTimeout(() => {
-              alert('welcome bro!')
-          }, 2000);
-          return()=>{
-              console.log('Main.js Clean up - useEffect');
-          }
+          refBtn.current.click();
+          return () => {
+               console.log("Main.js Clean up - useEffect");
+          };
      }, []);
 
      return (
@@ -29,6 +30,7 @@ const Main = (props) => {
                <p>Hello World!</p>
 
                <button
+                    ref={refBtn}
                     style={btn}
                     // onClick={this.changePriceHandler.bind(this,"new Title")}
                     onClick={props.click}
