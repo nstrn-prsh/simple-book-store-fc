@@ -1,7 +1,8 @@
 import React, { Component, createRef } from "react";
 import "./Product.css";
-import Wrapper from "./container/Wrapper";
-import Hoc from "./container/Hoc";
+import { AuthContext } from "./../Context/AuthContext";
+import { Hoc } from './../container/Hoc';
+import Wrapper from './../container/Wrapper';
 
 class Product extends Component {
      //  e48
@@ -19,11 +20,15 @@ class Product extends Component {
           const name = "book";
           return (
                <Hoc>
-                    {this.props.isAuth ? (
-                         <p>logged in!</p>
-                    ) : (
-                         <p>please log in!</p>
-                    )}
+                    <AuthContext.Consumer>
+                         {(context) =>
+                              context.auth ? (
+                                   <p>logged in!</p>
+                              ) : (
+                                   <p>please log in!</p>
+                              )
+                         }
+                    </AuthContext.Consumer>
                     <h3>it is a product {name}.</h3>
                     <h5 onClick={this.props.clickThis}>
                          name: {this.props.title}.

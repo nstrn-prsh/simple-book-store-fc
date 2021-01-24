@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useRef } from "react";
+import { AuthContext } from "./../Context/AuthContext";
 
 const Main = (props) => {
      const btn = {
@@ -38,7 +39,11 @@ const Main = (props) => {
                     click on me!
                </button>
 
-               <button onClick={props.login}>Login!</button>
+               <AuthContext.Consumer>
+                    {(context) => (
+                         <button onClick={context.login}>Login!</button>
+                    )}
+               </AuthContext.Consumer>
           </Fragment>
      );
 };

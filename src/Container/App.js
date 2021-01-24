@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { AuthContext } from "./../Component/Context/AuthContext";
 import ProductList from "./../Component/Product/ProductList";
 import Main from "./../Component/Product/Main";
 import "./App.css";
-import Hoc from './../Component/Product/container/Hoc';
-import Wrapper from './../Component/Product/container/Wrapper';
+import { Hoc } from './../Component/container/Hoc';
+import Wrapper from './../Component/container/Wrapper';
 
 class App extends Component {
      // e36
@@ -93,14 +94,20 @@ class App extends Component {
                     >
                          show/hide
                     </button>
-                    {this.state.showMain ? (
-                         <Main
-                              products={this.state.products}
-                              click={this.toggleProducts}
-                              login={this.loginHandler}
-                         />
-                    ) : null}
-                    {products}
+                    <AuthContext.Provider
+                         value={{
+                              auth: this.state.auth,
+                              login: this.loginHandler,
+                         }}
+                    >
+                         {this.state.showMain ? (
+                              <Main
+                                   products={this.state.products}
+                                   click={this.toggleProducts}
+                              />
+                         ) : null}
+                         {products}
+                    </AuthContext.Provider>
                </Hoc>
           );
      }
