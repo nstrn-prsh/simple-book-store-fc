@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment, useEffect, useRef, useContext } from "react";
 import { AuthContext } from "./../Context/AuthContext";
 
 const Main = (props) => {
@@ -12,6 +12,8 @@ const Main = (props) => {
           padding: "0.6rem",
           margin: "0.6rem auto",
      };
+     //  e53
+const {login}= useContext(AuthContext)
 
      //  e49
      const refBtn = useRef(null);
@@ -39,11 +41,7 @@ const Main = (props) => {
                     click on me!
                </button>
 
-               <AuthContext.Consumer>
-                    {(context) => (
-                         <button onClick={context.login}>Login!</button>
-                    )}
-               </AuthContext.Consumer>
+                         <button onClick={login}>Login!</button>
           </Fragment>
      );
 };
