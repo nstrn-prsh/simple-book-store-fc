@@ -1,20 +1,40 @@
-import React from "react";
+import React, { Component, createRef } from "react";
 import "./Product.css";
-import Wrapper from './../Container/Wrapper';
+import Wrapper from "./../Container/Wrapper";
+import Hoc from "./../Container/Hoc";
 
-const Product = (props) => {
-     // console.log('Product');
+class Product extends Component {
+     //  e48
+     constructor(props) {
+          super(props);
+          this.inputRef = createRef();
+     }
 
-     const name = "book";
-     return (
-          <div className='product'>
-               <h3>it is a product {name}.</h3>
-               <h5 onClick={props.clickThis}>name: {props.title}.</h5>
-               <h5>price: {props.price}.</h5>
-               <input type="text" onChange={props.changeThis} value={props.title}/>
-               <p>{props.children}</p>
-          </div>
-     );
-};
+     componentDidMount() {
+          // this.inputElement.focus();
+          this.inputRef.current.focus()
+     }
 
-export default Wrapper(Product, 'product');
+     render() {
+          const name = "book";
+          return (
+               <Hoc>
+                    <h3>it is a product {name}.</h3>
+                    <h5 onClick={this.props.clickThis}>
+                         name: {this.props.title}.
+                    </h5>
+                    <h5>price: {this.props.price}.</h5>
+                    <input
+                         // ref={(element) => (this.inputElement = element)}
+                         ref={this.inputRef}
+                         type='text'
+                         onChange={this.props.changeThis}
+                         value={this.props.title}
+                    />
+                    <p>{this.props.children}</p>
+               </Hoc>
+          );
+     }
+}
+
+export default Wrapper(Product, "product");
