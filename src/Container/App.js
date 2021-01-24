@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import ProductList from "./../Component/Product/ProductList";
 import Main from "./../Component/Product/Main";
 import "./App.css";
-import Wrapper from "./../Component/Container/Wrapper";
-import Hoc from './../Component/Container/Hoc';
+import Hoc from './../Component/Product/container/Hoc';
+import Wrapper from './../Component/Product/container/Wrapper';
 
 class App extends Component {
      // e36
@@ -21,6 +21,7 @@ class App extends Component {
           ],
           showProducts: false,
           showMain: true,
+          auth: false,
      };
 
      // e36
@@ -61,6 +62,11 @@ class App extends Component {
           this.setState({ products });
      };
 
+     // e50
+     loginHandler = () => {
+          this.setState({ auth: true });
+     };
+
      render() {
           console.log("App.js render()");
 
@@ -72,6 +78,7 @@ class App extends Component {
                          products={this.state.products}
                          click={this.handleDeleteProduct}
                          change={this.changeTitleHandler}
+                         isAuth={this.state.auth}
                     />
                );
           }
@@ -90,6 +97,7 @@ class App extends Component {
                          <Main
                               products={this.state.products}
                               click={this.toggleProducts}
+                              login={this.loginHandler}
                          />
                     ) : null}
                     {products}
@@ -98,4 +106,4 @@ class App extends Component {
      }
 }
 
-export default Wrapper(App, 'center');
+export default Wrapper(App, "center");

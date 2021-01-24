@@ -37,6 +37,8 @@ const Main = (props) => {
                >
                     click on me!
                </button>
+
+               <button onClick={props.login}>Login!</button>
           </Fragment>
      );
 };

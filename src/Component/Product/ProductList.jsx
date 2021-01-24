@@ -35,6 +35,7 @@ class  ProductList extends Component {
                            price={item.price}
                            clickThis={() => this.props.click(index)}
                            changeThis={(event) => this.props.change(event, item.id)}
+                           isAuth={this.props.isAuth}
                       />
                  ))}
             </Fragment>
