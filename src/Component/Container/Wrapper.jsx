@@ -10,9 +10,9 @@ import React from 'react'
 
 //  e46
 const Wrapper =(WrapperComponent, className) =>{
-    return ()=>(
+    return (props)=>(
         <div className={className}>
-            <WrapperComponent />
+            <WrapperComponent  {...props}/>
         </div>
     )
 }

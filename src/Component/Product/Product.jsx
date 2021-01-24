@@ -1,5 +1,6 @@
 import React from "react";
 import "./Product.css";
+import Wrapper from './../Container/Wrapper';
 
 const Product = (props) => {
      // console.log('Product');
@@ -16,4 +17,4 @@ const Product = (props) => {
      );
 };
 
-export default Product;
+export default Wrapper(Product, 'product');
