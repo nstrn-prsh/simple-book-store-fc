@@ -3,6 +3,7 @@ import ProductList from "./../Component/Product/ProductList";
 import Main from "./../Component/Product/Main";
 import "./App.css";
 import Wrapper from "./../Component/Container/Wrapper";
+import Hoc from './../Component/Container/Hoc';
 
 class App extends Component {
      // e36
@@ -76,7 +77,7 @@ class App extends Component {
           }
 
           return (
-               <Wrapper center='center'>
+               <Hoc>
                     {/* e42 */}
                     <button
                          onClick={() => {
@@ -92,9 +93,9 @@ class App extends Component {
                          />
                     ) : null}
                     {products}
-               </Wrapper>
+               </Hoc>
           );
      }
 }
 
-export default App;
+export default Wrapper(App, 'center');
