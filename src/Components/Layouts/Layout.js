@@ -5,7 +5,7 @@ const Layout = (props) => {
      return (
           <Fragment>
                <p> سلام به همه! </p>
-               <main>{props.children}</main>
+               <main style={{ margin: "1rem" }}>{props.children}</main>
           </Fragment>
      );
 };
