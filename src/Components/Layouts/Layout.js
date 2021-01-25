@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 const Layout = (props) => {
      return (
           <Fragment>
-               <p> Main Layout! </p>
+               <p> سلام به همه! </p>
                <main>{props.children}</main>
           </Fragment>
      );

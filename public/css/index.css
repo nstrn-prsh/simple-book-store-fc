@@ -1,0 +1,9 @@
+@font-face {
+     font-family: "Hanachi";
+     src: url("./../fonts/Hanachi.ttf");
+}
+
+body{
+    font-family: "Hanachi", serif;
+    font-size: x-large;
+}
