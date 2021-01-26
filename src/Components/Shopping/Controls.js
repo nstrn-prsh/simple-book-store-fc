@@ -8,11 +8,15 @@ const products = [
      { title: "product 3", type: "product3" },
 ];
 
-const Controls = () => {
+const Controls = ({ productAdd }) => {
      return (
           <div className='controls'>
                {products.map((item) => (
-                    <Builder key={item.title} title={item.title} />
+                    <Builder
+                         add={() => productAdd(item.type)}
+                         key={item.title}
+                         title={item.title}
+                    />
                ))}
           </div>
      );
