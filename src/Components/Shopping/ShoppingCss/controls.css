@@ -1,6 +1,6 @@
 .controls {
      width: 50rem;
-     background-color: darkslategray;
+     background-color: darkgray;
      display: flex;
      flex-flow: column;
      align-items: center;

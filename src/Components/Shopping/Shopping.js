@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import Controls from "./Controls";
 
 class Shopping extends Component {
      state = {
@@ -13,7 +14,7 @@ class Shopping extends Component {
      render() {
           return (
                <Fragment>
-                    <p>shopping controller!</p>
+                    <Controls />
                </Fragment>
           );
      }

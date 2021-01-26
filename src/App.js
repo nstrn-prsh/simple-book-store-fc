@@ -7,7 +7,6 @@ class App extends Component {
           return (
                <Fragment>
                     <Layout>
-                         <p> shopping cart! </p>
                          <Shopping />
                     </Layout>
                </Fragment>
