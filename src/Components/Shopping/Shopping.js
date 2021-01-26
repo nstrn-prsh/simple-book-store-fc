@@ -34,14 +34,31 @@ class Shopping extends Component {
           const newPrice = prevPrice + priceAdd;
 
           this.setState({ totalPrice: newPrice, products: updatedProducts });
+          console.log("Add is working");
+     };
 
-          console.log("it is working");
+     //  e63
+     removeProductHandler = (type) => {
+          const prevCount = this.state.products[type];
+          const updatedCount = prevCount - 1;
+          const updatedProduct = { ...this.state.product };
+          updatedProduct[type] = updatedCount;
+
+          const priceSub = prices[type];
+          const pervPrice = this.state.totalPrice;
+          const newPrice = pervPrice - priceSub;
+
+          this.setState({ totalPrice: newPrice, product: updatedProduct });
+          console.log("Remove is working!");
      };
 
      render() {
           return (
                <Fragment>
-                    <Controls productAdd={this.addProductHandler} />
+                    <Controls
+                         productAdd={this.addProductHandler}
+                         productRemove={this.removeProductHandler}
+                    />
                </Fragment>
           );
      }
