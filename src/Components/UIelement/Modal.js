@@ -1,8 +1,9 @@
 import React from "react";
 import "./../componentCss/modal.css";
 
-const Modal = () => {
-     return <div className='modal'></div>;
+//  etelaate sefaresh karbar ro inja neshon midim
+const Modal = (props) => {
+     return <div className='modal'>{props.children}</div>;
 };
 
 export default Modal;

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Controls from "./Controls";
 import Modal from "./../UIelement/Modal";
+import Order from "./Order";
 
 // e62
 const prices = {
@@ -41,20 +42,22 @@ class Shopping extends Component {
      removeProductHandler = (type) => {
           const prevCount = this.state.products[type];
           const updatedCount = prevCount - 1;
-          const updatedProduct = { ...this.state.product };
+          const updatedProduct = { ...this.state.products };
           updatedProduct[type] = updatedCount;
 
           const priceSub = prices[type];
           const pervPrice = this.state.totalPrice;
           const newPrice = pervPrice - priceSub;
 
-          this.setState({ totalPrice: newPrice, product: updatedProduct });
+          this.setState({ totalPrice: newPrice, products: updatedProduct });
      };
 
      render() {
           return (
                <Fragment>
-                    <Modal />
+                    <Modal>
+                         <Order products={this.state.products} />
+                    </Modal>
                     <Controls
                          productAdd={this.addProductHandler}
                          productRemove={this.removeProductHandler}
