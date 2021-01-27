@@ -1,6 +1,6 @@
 import React from "react";
 import Builder from "./Builder";
-import "./ShoppingCss/controls.css";
+import "./../componentCss/controls.css";
 
 const products = [
      { title: "product 1", type: "product1" },
@@ -11,7 +11,7 @@ const products = [
 const Controls = (props) => {
      return (
           <div className='controls'>
-               <p>total price:{props.price}</p>
+               <p className='totalPrice'> total price:{props.price} </p>
                {products.map((item) => (
                     <Builder
                          add={() => props.productAdd(item.type)}
@@ -20,6 +20,7 @@ const Controls = (props) => {
                          title={item.title}
                     />
                ))}
+               <button className='orderBtn'>order!</button>
           </div>
      );
 };

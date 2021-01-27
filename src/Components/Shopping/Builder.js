@@ -1,5 +1,5 @@
 import React from "react";
-import "./ShoppingCss/builder.css";
+import "./../componentCss/builder.css";
 
 const Builder = (props) => {
      return (

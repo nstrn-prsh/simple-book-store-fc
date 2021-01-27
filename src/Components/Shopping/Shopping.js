@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Controls from "./Controls";
+import Modal from "./../UIelement/Modal";
 
 // e62
 const prices = {
@@ -53,6 +54,7 @@ class Shopping extends Component {
      render() {
           return (
                <Fragment>
+                    <Modal />
                     <Controls
                          productAdd={this.addProductHandler}
                          productRemove={this.removeProductHandler}
