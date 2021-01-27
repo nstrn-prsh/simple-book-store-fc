@@ -34,7 +34,6 @@ class Shopping extends Component {
           const newPrice = prevPrice + priceAdd;
 
           this.setState({ totalPrice: newPrice, products: updatedProducts });
-          console.log("Add is working");
      };
 
      //  e63
@@ -49,7 +48,6 @@ class Shopping extends Component {
           const newPrice = pervPrice - priceSub;
 
           this.setState({ totalPrice: newPrice, product: updatedProduct });
-          console.log("Remove is working!");
      };
 
      render() {
@@ -58,6 +56,7 @@ class Shopping extends Component {
                     <Controls
                          productAdd={this.addProductHandler}
                          productRemove={this.removeProductHandler}
+                         price={this.state.totalPrice}
                     />
                </Fragment>
           );

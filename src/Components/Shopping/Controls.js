@@ -8,13 +8,14 @@ const products = [
      { title: "product 3", type: "product3" },
 ];
 
-const Controls = ({ productAdd, productRemove }) => {
+const Controls = (props) => {
      return (
           <div className='controls'>
+               <p>total price:{props.price}</p>
                {products.map((item) => (
                     <Builder
-                         add={() => productAdd(item.type)}
-                         remove={() => productRemove(item.type)}
+                         add={() => props.productAdd(item.type)}
+                         remove={() => props.productRemove(item.type)}
                          key={item.title}
                          title={item.title}
                     />
