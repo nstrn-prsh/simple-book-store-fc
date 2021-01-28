@@ -8,7 +8,6 @@ const prices = {
      product1: 11,
      product2: 22,
      product3: 33,
-     product4: 44,
 };
 class Shopping extends Component {
      state = {
@@ -16,7 +15,6 @@ class Shopping extends Component {
                product1: 0,
                product2: 0,
                product3: 0,
-               product4: 0,
           },
           totalPrice: 0,
           purchased: false,
@@ -58,10 +56,18 @@ class Shopping extends Component {
           this.setState({ purchased: true });
      };
 
+     //  e68
+     modalHandler = () => {
+          this.setState({ purchased: false });
+     };
+
      render() {
           return (
                <Fragment>
-                    <Modal show={this.state.purchased}>
+                    <Modal
+                         show={this.state.purchased}
+                         modalClose={this.modalHandler}
+                    >
                          <Order products={this.state.products} />
                     </Modal>
                     <Controls
