@@ -1,10 +1,12 @@
 // shamele ghesmate aslie user interface (ui)
 import React, { Fragment } from "react";
+import Navbar from "./../Navigation/Navbar";
 
 const Layout = (props) => {
      return (
           <Fragment>
-               <main style={{ margin: "1rem" }}>{props.children}</main>
+               <Navbar />
+               <main style={{ margin: "10rem" }}>{props.children}</main>
           </Fragment>
      );
 };
