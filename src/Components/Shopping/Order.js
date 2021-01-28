@@ -11,6 +11,7 @@ const Order = (props) => {
                               {item} : {props.products[item]}
                          </li>
                     ))}
+                    <p>total price : {props.totalPrice}</p>
                     <p>continue?</p>
                     <ButtonModal btnType='success' click={props.confirm}>
                          yes

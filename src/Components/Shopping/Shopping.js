@@ -75,6 +75,7 @@ class Shopping extends Component {
                     >
                          <Order
                               products={this.state.products}
+                              totalPrice={this.state.totalPrice}
                               confirm={this.purchaseConfirmHandler}
                               cancel={this.modalCloseHandler}
                          />
