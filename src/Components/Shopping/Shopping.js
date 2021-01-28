@@ -57,8 +57,13 @@ class Shopping extends Component {
      };
 
      //  e68
-     modalHandler = () => {
+     modalCloseHandler = () => {
           this.setState({ purchased: false });
+     };
+
+     //  e70
+     purchaseConfirmHandler = () => {
+          console.log("purchaseConfirmHandler");
      };
 
      render() {
@@ -66,9 +71,13 @@ class Shopping extends Component {
                <Fragment>
                     <Modal
                          show={this.state.purchased}
-                         modalClose={this.modalHandler}
+                         modalClose={this.modalCloseHandler}
                     >
-                         <Order products={this.state.products} />
+                         <Order
+                              products={this.state.products}
+                              confirm={this.purchaseConfirmHandler}
+                              cancel={this.modalCloseHandler}
+                         />
                     </Modal>
                     <Controls
                          productAdd={this.addProductHandler}
