@@ -20,7 +20,9 @@ const Controls = (props) => {
                          title={item.title}
                     />
                ))}
-               <button className='orderBtn'>order!</button>
+               <button className='orderBtn' onClick={props.order}>
+                    order!
+               </button>
           </div>
      );
 };

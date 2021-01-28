@@ -19,6 +19,7 @@ class Shopping extends Component {
                product4: 0,
           },
           totalPrice: 0,
+          purchased: false,
      };
 
      //  e62
@@ -52,16 +53,22 @@ class Shopping extends Component {
           this.setState({ totalPrice: newPrice, products: updatedProduct });
      };
 
+     //  e67
+     purchasedHandler = () => {
+          this.setState({ purchased: true });
+     };
+
      render() {
           return (
                <Fragment>
-                    <Modal>
+                    <Modal show={this.state.purchased}>
                          <Order products={this.state.products} />
                     </Modal>
                     <Controls
                          productAdd={this.addProductHandler}
                          productRemove={this.removeProductHandler}
                          price={this.state.totalPrice}
+                         order={this.purchasedHandler}
                     />
                </Fragment>
           );
