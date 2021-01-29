@@ -1,11 +1,14 @@
 import React from "react";
 import "./../componentCss/navbar.css";
+import NavItems from "./NavItems";
 
 //  e72
 const Navbar = (props) => {
      return (
           <header className='navbar'>
-               <nav>...</nav>
+               <nav>
+                    <NavItems />
+               </nav>
           </header>
      );
 };
