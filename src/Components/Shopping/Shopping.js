@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import Controls from "./Controls";
 import Modal from "./../UIelement/Modal";
 import Order from "./Order";
+import axios from "./../../axios";
 
 // e62
 const prices = {
@@ -63,7 +64,18 @@ class Shopping extends Component {
 
      //  e70
      purchaseConfirmHandler = () => {
-          console.log("purchaseConfirmHandler");
+          //  e92
+          const order = {
+               products: this.state.products,
+               totalPrice: this.state.totalPrice,
+               customer: {
+                    name: "nas",
+                    email: "nastaran.p.sh.77@gmail.com",
+               },
+          };
+          axios.post("/orders.json", order)
+               .then((res) => console.log(res))
+               .catch((err) => console.log(err));
      };
 
      render() {
