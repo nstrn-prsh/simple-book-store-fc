@@ -3,6 +3,7 @@ import Controls from "./Controls";
 import Modal from "./../UIelement/Modal";
 import Order from "./Order";
 import axios from "./../../axios";
+import Loading from "../UIelement/Loading";
 
 // e62
 const prices = {
@@ -19,6 +20,7 @@ class Shopping extends Component {
           },
           totalPrice: 0,
           purchased: false,
+          loader: false,
      };
 
      //  e62
@@ -62,8 +64,8 @@ class Shopping extends Component {
           this.setState({ purchased: false });
      };
 
-     //  e70
      purchaseConfirmHandler = () => {
+          this.setState({ loader: true });
           //  e92
           const order = {
                products: this.state.products,
@@ -74,23 +76,33 @@ class Shopping extends Component {
                },
           };
           axios.post("/orders.json", order)
-               .then((res) => console.log(res))
-               .catch((err) => console.log(err));
+               .then((res) =>
+                    this.setState({ loader: false, purchased: false })
+               )
+               .catch((err) =>
+                    this.setState({ loader: false, purchased: false })
+               );
      };
 
      render() {
+          //  e93
+          let order = (
+               <Order
+                    products={this.state.products}
+                    totalPrice={this.state.totalPrice}
+                    confirm={this.purchaseConfirmHandler}
+                    cancel={this.modalCloseHandler}
+               />
+          );
+          if (this.state.loader) order = <Loading />;
+
           return (
                <Fragment>
                     <Modal
                          show={this.state.purchased}
                          modalClose={this.modalCloseHandler}
                     >
-                         <Order
-                              products={this.state.products}
-                              totalPrice={this.state.totalPrice}
-                              confirm={this.purchaseConfirmHandler}
-                              cancel={this.modalCloseHandler}
-                         />
+                         {order}
                     </Modal>
                     <Controls
                          productAdd={this.addProductHandler}
