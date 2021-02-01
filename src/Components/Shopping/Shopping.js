@@ -13,15 +13,18 @@ const prices = {
 };
 class Shopping extends Component {
      state = {
-          products: {
-               product1: 0,
-               product2: 0,
-               product3: 0,
-          },
+          products: null,
           totalPrice: 0,
           purchased: false,
           loader: false,
      };
+
+     //  e94
+     componentDidMount() {
+          axios.get(
+               "https://react2nd-9d0e2-default-rtdb.firebaseio.com/products.json"
+          ).then((res) => this.setState({ products: res.data }));
+     }
 
      //  e62
      // tedade yek mahsool - gheymate nahaii
@@ -75,6 +78,7 @@ class Shopping extends Component {
                     email: "nastaran.p.sh.77@gmail.com",
                },
           };
+          //  nokte: chon ba firebase kar mikonim hatman bayad .json ro benevisim
           axios.post("/orders.json", order)
                .then((res) =>
                     this.setState({ loader: false, purchased: false })
@@ -85,16 +89,30 @@ class Shopping extends Component {
      };
 
      render() {
-          //  e93
-          let order = (
-               <Order
-                    products={this.state.products}
-                    totalPrice={this.state.totalPrice}
-                    confirm={this.purchaseConfirmHandler}
-                    cancel={this.modalCloseHandler}
-               />
-          );
+          let order = null;
           if (this.state.loader) order = <Loading />;
+
+          //  e94
+          let control = <Loading />;
+          if (this.state.products) {
+               control = (
+                    <Controls
+                         productAdd={this.addProductHandler}
+                         productRemove={this.removeProductHandler}
+                         price={this.state.totalPrice}
+                         order={this.purchasedHandler}
+                    />
+               );
+               //  e93
+               order = (
+                    <Order
+                         products={this.state.products}
+                         totalPrice={this.state.totalPrice}
+                         confirm={this.purchaseConfirmHandler}
+                         cancel={this.modalCloseHandler}
+                    />
+               );
+          }
 
           return (
                <Fragment>
@@ -104,12 +122,7 @@ class Shopping extends Component {
                     >
                          {order}
                     </Modal>
-                    <Controls
-                         productAdd={this.addProductHandler}
-                         productRemove={this.removeProductHandler}
-                         price={this.state.totalPrice}
-                         order={this.purchasedHandler}
-                    />
+                    {control}
                </Fragment>
           );
      }
