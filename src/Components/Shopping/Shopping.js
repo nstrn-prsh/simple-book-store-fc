@@ -69,6 +69,8 @@ class Shopping extends Component {
      };
 
      purchaseConfirmHandler = () => {
+          this.props.history.push('/checkout')
+          /*
           this.setState({ loader: true });
           //  e92
           const order = {
@@ -87,6 +89,7 @@ class Shopping extends Component {
                .catch((err) =>
                     this.setState({ loader: false, purchased: false })
                );
+               */
      };
 
      render() {
