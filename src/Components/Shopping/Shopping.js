@@ -21,6 +21,7 @@ class Shopping extends Component {
 
      //  e94
      componentDidMount() {
+          console.log(this.props);
           axios.get(
                "https://react2nd-9d0e2-default-rtdb.firebaseio.com/products.json"
           ).then((res) => this.setState({ products: res.data }));
