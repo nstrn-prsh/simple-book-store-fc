@@ -21,7 +21,6 @@ class Shopping extends Component {
 
      //  e94
      componentDidMount() {
-          console.log(this.props);
           axios.get(
                "https://react2nd-9d0e2-default-rtdb.firebaseio.com/products.json"
           ).then((res) => this.setState({ products: res.data }));
@@ -69,8 +68,7 @@ class Shopping extends Component {
      };
 
      purchaseConfirmHandler = () => {
-          this.props.history.push('/checkout')
-          /*
+          this.props.history.push("/checkout");
           this.setState({ loader: true });
           //  e92
           const order = {
@@ -89,7 +87,6 @@ class Shopping extends Component {
                .catch((err) =>
                     this.setState({ loader: false, purchased: false })
                );
-               */
      };
 
      render() {
