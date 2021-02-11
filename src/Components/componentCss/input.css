@@ -6,7 +6,7 @@
 
 .inputElement {
      outline: none;
-     border: 1px solid #e1bee7;
+     border: 1px solid #fad1f0;
      background: #fff;
      font: inherit;
      padding: 6px;
@@ -14,4 +14,8 @@
      width: 100%;
      box-sizing: border-box;
      border-radius: 3px;
+}
+
+.notValid{
+     border: 1px solid red
 }

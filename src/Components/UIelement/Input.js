@@ -3,11 +3,17 @@ import "./../componentCss/input.css";
 
 const Input = (props) => {
      let formElement = null;
+     //  e123
+     const checkValid = ['inputElement']
+     if(props.notValid){
+          checkValid.push('notValid')
+     }
+
      switch (props.fieldType) {
           case "input":
                formElement = (
                     <input
-                         className='inputElement'
+                         className={checkValid.join(' ')}
                          {...props.elementConfig}
                          value={props.value}
                          onChange={props.change}
@@ -17,7 +23,7 @@ const Input = (props) => {
           default:
                formElement = (
                     <input
-                         className='inputElement'
+                         className={checkValid.join(' ')}
                          {...props.elementConfig}
                          value={props.value}
                          onChange={props.change}

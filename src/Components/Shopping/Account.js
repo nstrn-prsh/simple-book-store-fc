@@ -48,9 +48,10 @@ class Account extends Component {
 
      //  e122
      // value - meghdari ke gharare check beshe
-     //  rules: ghavanini ke darim
+     //  rules- ghavanini ke darim
      validator = (value, rules) => {
           let isValid = false;
+          //  .trim() space haro hazf mikone
           if (rules.required) isValid = value.trim() !== "";
           return isValid;
      };
@@ -106,6 +107,7 @@ class Account extends Component {
                          {elementArray.map((item) => (
                               <Input
                                    key={item.id}
+                                   notValid={!item.config.valid}
                                    elementType={item.config.elementType}
                                    elementConfig={item.config.elementConfig}
                                    change={(event) =>
