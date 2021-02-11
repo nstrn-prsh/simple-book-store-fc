@@ -18,6 +18,7 @@ class Account extends Component {
                          required: true,
                     },
                     valid: false,
+                    inUse: false,
                },
                email: {
                     elementType: "input",
@@ -30,6 +31,7 @@ class Account extends Component {
                          required: true,
                     },
                     valid: false,
+                    inUse: false,
                },
                password: {
                     elementType: "input",
@@ -42,6 +44,7 @@ class Account extends Component {
                          required: true,
                     },
                     valid: false,
+                    inUse: false,
                },
           },
      };
@@ -70,7 +73,7 @@ class Account extends Component {
                updateElement.value,
                updateElement.validation
           );
-          console.log(updateElement);
+          updateElement.inUse = true;
           //  meghdare jadide form ro behesh midim
           upForm[inputElement] = updateElement;
           //  state ro update mikonim
@@ -108,6 +111,7 @@ class Account extends Component {
                               <Input
                                    key={item.id}
                                    notValid={!item.config.valid}
+                                   used={item.config.inUse}
                                    elementType={item.config.elementType}
                                    elementConfig={item.config.elementConfig}
                                    change={(event) =>
