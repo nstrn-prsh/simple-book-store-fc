@@ -14,6 +14,10 @@ class Account extends Component {
                          type: "text",
                          placeholder: "name...",
                     },
+                    validation: {
+                         required: true,
+                    },
+                    valid: false,
                },
                email: {
                     elementType: "input",
@@ -22,6 +26,10 @@ class Account extends Component {
                          type: "email",
                          placeholder: "email...",
                     },
+                    validation: {
+                         required: true,
+                    },
+                    valid: false,
                },
                password: {
                     elementType: "input",
@@ -30,8 +38,21 @@ class Account extends Component {
                          type: "password",
                          placeholder: "password...",
                     },
+                    validation: {
+                         required: true,
+                    },
+                    valid: false,
                },
           },
+     };
+
+     //  e122
+     // value - meghdari ke gharare check beshe
+     //  rules: ghavanini ke darim
+     validator = (value, rules) => {
+          let isValid = false;
+          if (rules.required) isValid = value.trim() !== "";
+          return isValid;
      };
 
      // e119
@@ -43,6 +64,12 @@ class Account extends Component {
           const updateElement = { ...upForm[inputElement] };
           //  value on element ro ham baresi mikonim
           updateElement.value = event.target.value;
+          //  e122
+          updateElement.valid = this.validator(
+               updateElement.value,
+               updateElement.validation
+          );
+          console.log(updateElement);
           //  meghdare jadide form ro behesh midim
           upForm[inputElement] = updateElement;
           //  state ro update mikonim
