@@ -33,13 +33,25 @@ class Account extends Component {
           },
      };
      render() {
+          const elementArray = [];
+          for (let item in this.state.form) {
+               elementArray.push({
+                    id: item,
+                    config: this.state.form[item],
+               });
+          }
+
           return (
                <div className='account'>
                     <h2>user account!</h2>
                     <form>
-                         <Input type='text' placeholder='full name...' />
-                         <Input type='email' placeholder='email...' />
-                         <Input type='password' placeholder='password...' />
+                         {elementArray.map((item) => (
+                              <Input
+                                   key={item.id}
+                                   elementType={item.config.elementType}
+                                   elementConfig={item.config.elementConfig}
+                              />
+                         ))}
                          <ButtonModal btnType='form'>submit</ButtonModal>
                     </form>
                </div>
