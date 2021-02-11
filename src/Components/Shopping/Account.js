@@ -33,8 +33,19 @@ class Account extends Component {
           },
      };
 
+     // e119
+     //  maghadire update shodeye form va element haye dakhele form  moheman
      inputOnChangeHandler = (event, inputElement) => {
-          console.log(event.target.value);
+          // ye copy az state form migirim
+          const upForm = { ...this.state.form };
+          //  element khasi ke to form dare update mishe
+          const updateElement = { ...upForm[inputElement] };
+          //  value on element ro ham baresi mikonim
+          updateElement.value = event.target.value;
+          //  meghdare jadide form ro behesh midim
+          upForm[inputElement] = updateElement;
+          //  state ro update mikonim
+          this.setState({ form: upForm });
      };
 
      render() {
