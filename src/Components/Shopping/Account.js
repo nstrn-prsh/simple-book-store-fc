@@ -48,6 +48,17 @@ class Account extends Component {
           this.setState({ form: upForm });
      };
 
+     //  e120
+     submitHandler = (event) => {
+          event.preventDefault();
+          //  extract data nahaii
+          const formData = {};
+          // toye state peymayesh mikonim va maghdiro toye object formData gharar midim
+          for (let item in this.state.form)
+               formData[item] = this.state.form[item].value;
+          console.log(formData);
+     };
+
      render() {
           const elementArray = [];
           for (let item in this.state.form) {
@@ -60,7 +71,7 @@ class Account extends Component {
           return (
                <div className='account'>
                     <h2>user account!</h2>
-                    <form>
+                    <form onSubmit={this.submitHandler}>
                          {elementArray.map((item) => (
                               <Input
                                    key={item.id}
