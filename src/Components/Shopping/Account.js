@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Input from "./../UIelement/Input";
-import "./../componentCss/account.css";
 import ButtonModal from "./../UIelement/ButtonModal";
+import Input from "./../UIelement/Input";
+import axios from "./../../axios";
+import "./../componentCss/account.css";
 
 class Account extends Component {
      state = {
@@ -56,7 +57,10 @@ class Account extends Component {
           // toye state peymayesh mikonim va maghdiro toye object formData gharar midim
           for (let item in this.state.form)
                formData[item] = this.state.form[item].value;
-          console.log(formData);
+          //  e121
+          axios.post("/userAccount.json", formData)
+               .then((res) => console.log(res))
+               .catch((err) => console.log(err));
      };
 
      render() {
