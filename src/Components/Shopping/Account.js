@@ -32,6 +32,11 @@ class Account extends Component {
                },
           },
      };
+
+     inputOnChangeHandler = (event, inputElement) => {
+          console.log(event.target.value);
+     };
+
      render() {
           const elementArray = [];
           for (let item in this.state.form) {
@@ -50,6 +55,12 @@ class Account extends Component {
                                    key={item.id}
                                    elementType={item.config.elementType}
                                    elementConfig={item.config.elementConfig}
+                                   change={(event) =>
+                                        this.inputOnChangeHandler(
+                                             event,
+                                             item.id
+                                        )
+                                   }
                               />
                          ))}
                          <ButtonModal btnType='form'>submit</ButtonModal>
