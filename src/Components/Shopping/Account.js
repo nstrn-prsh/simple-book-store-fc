@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import axios from "./../../axios";
 import ButtonModal from "./../UIelement/ButtonModal";
 import Input from "./../UIelement/Input";
-import axios from "./../../axios";
 import "./../componentCss/account.css";
 
 class Account extends Component {
@@ -95,6 +95,9 @@ class Account extends Component {
      };
 
      render() {
+          //  vase inke input dynamic dashte bashim
+          // id baraye joda sazie input hast
+          //  config baraye property haye input hast
           const elementArray = [];
           for (let item in this.state.form) {
                elementArray.push({
@@ -114,6 +117,7 @@ class Account extends Component {
                                    used={item.config.inUse}
                                    elementType={item.config.elementType}
                                    elementConfig={item.config.elementConfig}
+                                   value={item.config.value}
                                    change={(event) =>
                                         this.inputOnChangeHandler(
                                              event,
@@ -122,6 +126,7 @@ class Account extends Component {
                                    }
                               />
                          ))}
+
                          <ButtonModal btnType='form'>submit</ButtonModal>
                     </form>
                </div>

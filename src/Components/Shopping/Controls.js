@@ -14,10 +14,10 @@ const Controls = (props) => {
                <p className='totalPrice'> total price:{props.price} </p>
                {products.map((item) => (
                     <Builder
-                         add={() => props.productAdd(item.type)}
-                         remove={() => props.productRemove(item.type)}
                          key={item.title}
                          title={item.title}
+                         add={() => props.productAdd(item.type)}
+                         remove={() => props.productRemove(item.type)}
                     />
                ))}
                <button className='orderBtn' onClick={props.order}>

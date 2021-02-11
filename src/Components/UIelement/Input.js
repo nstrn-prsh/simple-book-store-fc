@@ -18,6 +18,7 @@ const Input = (props) => {
                     />
                );
                break;
+
           default:
                formElement = (
                     <input

@@ -1,6 +1,6 @@
 import React from "react";
-import "./../componentCss/navItems.css";
 import NavItem from "./NavItem";
+import "./../componentCss/navItems.css";
 
 //  e73
 const NavItems = () => {

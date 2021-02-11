@@ -2,8 +2,8 @@ import React, { Component, Fragment } from "react";
 import Controls from "./Controls";
 import Modal from "./../UIelement/Modal";
 import Order from "./Order";
-import axios from "./../../axios";
 import Loading from "../UIelement/Loading";
+import axios from "./../../axios";
 
 // e62
 const prices = {
@@ -24,6 +24,7 @@ class Shopping extends Component {
           axios.get(
                "https://react2nd-9d0e2-default-rtdb.firebaseio.com/products.json"
           ).then((res) => this.setState({ products: res.data }));
+          //  bad az inke data get shod, product to state az null taghir mikone va bain meghdar por mishe
      }
 
      //  e62
