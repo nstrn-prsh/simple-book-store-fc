@@ -1,9 +1,37 @@
 import React, { Component } from "react";
 import Input from "./../UIelement/Input";
 import "./../componentCss/account.css";
-import ButtonModal from './../UIelement/ButtonModal';
+import ButtonModal from "./../UIelement/ButtonModal";
 
 class Account extends Component {
+     state = {
+          form: {
+               name: {
+                    elementType: "input",
+                    value: "",
+                    elementConfig: {
+                         type: "text",
+                         placeholder: "name...",
+                    },
+               },
+               email: {
+                    elementType: "input",
+                    value: "",
+                    elementConfig: {
+                         type: "email",
+                         placeholder: "email...",
+                    },
+               },
+               password: {
+                    elementType: "input",
+                    value: "",
+                    elementConfig: {
+                         type: "password",
+                         placeholder: "password...",
+                    },
+               },
+          },
+     };
      render() {
           return (
                <div className='account'>
